@@ -20,6 +20,11 @@ final class MovieListViewController: UIViewController {
         collectionView.delegate = presenter
         collectionView.dataSource = presenter
         
+        collectionView.register(
+            MovieListCollectionViewCell.self,
+            forCellWithReuseIdentifier: MovieListCollectionViewCell.identifier
+        )
+        
         return collectionView
     }()
     

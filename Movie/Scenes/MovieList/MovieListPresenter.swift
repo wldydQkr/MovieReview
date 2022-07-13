@@ -30,15 +30,31 @@ final class MovieListPrenseter: NSObject {
 
 extension MovieListPrenseter: UISearchBarDelegate {}
 
-extension MovieListPrenseter: UICollectionViewDelegate {}
+extension MovieListPrenseter: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let spacing: CGFloat = 16.0
+        let width: CGFloat = (collectionView.frame.width - spacing * 3) / 2
+        return CGSize(width: width, height: 210.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let inset: CGFloat = 16.0
+        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+    }
+}
 extension MovieListPrenseter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        UICollectionViewCell()
+        let cell =
+        collectionView.dequeueReusableCell(
+            withReuseIdentifier: MovieListCollectionViewCell.identifier,
+            for: indexPath) as? MovieListCollectionViewCell
+        
+        cell?.backgroundColor = .green
+        
+        return cell ?? UICollectionViewCell()
     }
-    
-    
 }
