@@ -15,7 +15,7 @@ protocol MovieSearchManagerProtocol {
 struct MovieSearchMangaer: MovieSearchManagerProtocol {
     func request(from keyword: String, completionHandler: @escaping([Movie]) -> Void) {
         guard let url = URL(string: "https://openapi.naver.com/v1/search/movie.json") else { return }
-        let parameters = MovieSaearchRequestModel(queary: keyword)
+        let parameters = MovieSaearchRequestModel(query: keyword)
         let headers: HTTPHeaders = [
             "X-Naver-Client-Id": "7loFCPegLR1d3CjSx3Vg",
             "X-Naver-Client-Secret": "0MPxqwjBWQ"

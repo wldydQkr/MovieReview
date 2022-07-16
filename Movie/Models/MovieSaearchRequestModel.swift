@@ -8,5 +8,5 @@
 import Foundation
 
 struct MovieSaearchRequestModel: Codable {
-    let queary: String
+    let query: String
 }

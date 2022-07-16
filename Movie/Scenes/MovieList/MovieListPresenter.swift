@@ -18,14 +18,22 @@ final class MovieListPrenseter: NSObject {
     // weak var를 사용하면 메모리 참조에서 안전하기 때문에 화면이 생성됚다가 사라지는게 빈번하면 memory leak에 위험이 있기 때문에 weak var나 unwned let을 사용하면 더 안전한 코드로 구성이 가능함
     private weak var viewController: MovieListProtocol?
     
+    private let movieSearchManager: MovieSearchManagerProtocol
+    
     private var likedMovie: [Movie] = [
         Movie(title: "Topgun", imageURL: "", userRating: "10.0", actor: "123", director: "123", pubDate: "2022"),
         Movie(title: "Topgun", imageURL: "", userRating: "10.0", actor: "123", director: "123", pubDate: "2022"),
         Movie(title: "Topgun", imageURL: "", userRating: "10.0", actor: "123", director: "123", pubDate: "2022")
     ]
     
-    init(viewController: MovieListProtocol) {
+    private var currentMovieSearchResult: [Movie] = []
+    
+    init(
+        viewController: MovieListProtocol,
+        movieSearchManager: MovieSearchManagerProtocol = MovieSearchMangaer()
+    ) {
         self.viewController = viewController
+        self.movieSearchManager = movieSearchManager
     }
     
     func viewDidLoad() {
@@ -76,18 +84,28 @@ extension MovieListPrenseter: UITableViewDelegate {
     
     // seachBar 비활성화 될 때
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // cancle 버튼을 누르면 검색값을 빈 배열로 초기화
+        currentMovieSearchResult = []
         viewController?.updateSearchTableView(isHidden: true)
+    }
+    
+    // searchBar에서 값이 들어오면 불려지는 메서드
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        movieSearchManager.request(from: searchText) { [weak self] movies in
+            self?.currentMovieSearchResult = movies
+            self?.viewController?.updateSearchTableView(isHidden: false)
+        }
     }
 }
 
 extension MovieListPrenseter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        currentMovieSearchResult.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "\(indexPath)"
+        cell.textLabel?.text = currentMovieSearchResult[indexPath.row].title
         
         return cell
     }
