@@ -11,6 +11,7 @@ protocol MovieListProtocol: AnyObject {
     func setupNavigationBar()
     func setupSearchBar()
     func setupViews()
+    func updateSearchTableView(isHidden: Bool)
 }
 
 final class MovieListPrenseter: NSObject {
@@ -64,4 +65,32 @@ extension MovieListPrenseter: UICollectionViewDataSource {
         
         return cell ?? UICollectionViewCell()
     }
+}
+
+// MARK: UISearchBarDelegate
+extension MovieListPrenseter: UITableViewDelegate {
+    // searchBar 활성화 될 때
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        viewController?.updateSearchTableView(isHidden: false)
+    }
+    
+    // seachBar 비활성화 될 때
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewController?.updateSearchTableView(isHidden: true)
+    }
+}
+
+extension MovieListPrenseter: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "\(indexPath)"
+        
+        return cell
+    }
+    
+    
 }

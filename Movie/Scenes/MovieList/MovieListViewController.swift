@@ -28,6 +28,14 @@ final class MovieListViewController: UIViewController {
         return collectionView
     }()
     
+    private lazy var searchResultTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = presenter
+        tableView.dataSource = presenter
+        
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,10 +59,21 @@ extension MovieListViewController: MovieListProtocol {
     }
     
     func setupViews() {
-        view.addSubview(collectionView)
+        [collectionView, searchResultTableView]
+            .forEach { view.addSubview($0)}
         
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
+        searchResultTableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        searchResultTableView.isHidden = true
+    }
+    
+    func updateSearchTableView(isHidden: Bool) {
+        searchResultTableView.isHidden = isHidden
     }
 }
