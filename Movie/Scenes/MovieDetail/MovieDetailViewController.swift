@@ -10,13 +10,29 @@ import SnapKit
 
 final class MovieDetailViewController: UIViewController {
     
-    private lazy var presenter = MovieDetailPresenter(viewController: self)
+    private var presenter: MovieDetailPresenter!
+    
+    init(movie: Movie) {
+        super.init(nibName: nil, bundle: nil)
+        
+        presenter = MovieDetailPresenter(viewController: self, movie: movie)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .yellow
+        presenter.viewDidLoad()
     }
 }
 
-extension MovieDetailViewController: MovieDetailProtocol {}
+extension MovieDetailViewController: MovieDetailProtocol {
+    func setViews(with movie: Movie) {
+        view.backgroundColor = .systemBackground
+        
+        navigationItem.title = movie.title
+    }
+}
