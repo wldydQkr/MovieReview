@@ -45,7 +45,23 @@ extension MovieDetailViewController: MovieDetailProtocol {
         
         navigationItem.title = movie.title
         
-        [imageView]
+        let userRatingContentsStackView = MovieContentStackView(title: "평점", contents: movie.userRating)
+        let actorContentsStackView = MovieContentStackView(title: "베우", contents: movie.actor)
+        let directorContentsStackView = MovieContentStackView(title: "감독", contents: movie.director)
+        let pubDateContentsStackView = MovieContentStackView(title: "제작년도", contents: movie.pubDate)
+        
+        let contentsStackView = UIStackView()
+        contentsStackView.axis = .vertical
+        contentsStackView.spacing = 8.0
+        
+        [
+            userRatingContentsStackView,
+            actorContentsStackView,
+            directorContentsStackView,
+            pubDateContentsStackView
+        ].forEach { contentsStackView.addArrangedSubview($0) }
+        
+        [imageView, contentsStackView]
             .forEach { view.addSubview($0) }
         
         let inset: CGFloat = 16.0
@@ -55,6 +71,12 @@ extension MovieDetailViewController: MovieDetailProtocol {
             $0.leading.equalToSuperview().inset(inset)
             $0.trailing.equalToSuperview().inset(inset)
             $0.height.equalTo(imageView.snp.width)
+        }
+        
+        contentsStackView.snp.makeConstraints {
+            $0.leading.equalTo(imageView.snp.leading)
+            $0.trailing.equalTo(imageView.snp.trailing)
+            $0.top.equalTo(imageView.snp.bottom).offset(inset)
         }
         
         if let imageURL = movie.imageURL {
