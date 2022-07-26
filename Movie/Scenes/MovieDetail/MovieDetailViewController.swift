@@ -13,6 +13,13 @@ final class MovieDetailViewController: UIViewController {
     
     private var presenter: MovieDetailPresenter!
     
+    private lazy var rightBarButtonItem = UIBarButtonItem(
+        image: UIImage(systemName: "star"),
+        style: .plain,
+        target: self,
+        action: #selector(didTapRightBarButtonItem)
+    )
+    
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -44,6 +51,7 @@ extension MovieDetailViewController: MovieDetailProtocol {
         view.backgroundColor = .systemBackground
         
         navigationItem.title = movie.title
+        navigationItem.rightBarButtonItem = rightBarButtonItem
         
         let userRatingContentsStackView = MovieContentStackView(title: "평점", contents: movie.userRating)
         let actorContentsStackView = MovieContentStackView(title: "베우", contents: movie.actor)
@@ -82,5 +90,16 @@ extension MovieDetailViewController: MovieDetailProtocol {
         if let imageURL = movie.imageURL {
             imageView.kf.setImage(with: movie.imageURL)
         }
+    }
+    
+    func setRightBarButton(with isLiked: Bool) {
+        let imageName = isLiked ? "star.fill" : "star"
+        rightBarButtonItem.image = UIImage(systemName: imageName)
+    }
+}
+
+private extension MovieDetailViewController {
+    @objc func didTapRightBarButtonItem() {
+        presenter.didTapRightBarButtonItem()
     }
 }

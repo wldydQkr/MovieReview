@@ -41,6 +41,12 @@ final class MovieListViewController: UIViewController {
         
         presenter.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        presenter.viewWillAppear()
+    }
 }
 
 extension MovieListViewController: MovieListProtocol {
@@ -48,6 +54,8 @@ extension MovieListViewController: MovieListProtocol {
         navigationItem.title = "영화 평점"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
+        
+//        navigationItem.rightBarButtonItem
     }
     
     func setupSearchBar() {
@@ -81,5 +89,9 @@ extension MovieListViewController: MovieListProtocol {
     func pushToMovieViewController(with movie: Movie) {
         let movieDetailViewController = MovieDetailViewController(movie: movie)
         navigationController?.pushViewController(movieDetailViewController, animated: true)
+    }
+    
+    func updateCollectionView() {
+        collectionView.reloadData()
     }
 }

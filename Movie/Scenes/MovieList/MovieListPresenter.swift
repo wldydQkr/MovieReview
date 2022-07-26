@@ -13,27 +13,28 @@ protocol MovieListProtocol: AnyObject {
     func setupViews()
     func updateSearchTableView(isHidden: Bool)
     func pushToMovieViewController(with movie: Movie)
+    func updateCollectionView()
 }
 
 final class MovieListPrenseter: NSObject {
     // weak var를 사용하면 메모리 참조에서 안전하기 때문에 화면이 생성됚다가 사라지는게 빈번하면 memory leak에 위험이 있기 때문에 weak var나 unwned let을 사용하면 더 안전한 코드로 구성이 가능함
     private weak var viewController: MovieListProtocol?
     
+    private let userDefaultsManager: USerDefaultsManagerProtocol
+    
     private let movieSearchManager: MovieSearchManagerProtocol
     
-    private var likedMovie: [Movie] = [
-        Movie(title: "Topgun", imageURL: "", userRating: "10.0", actor: "123", director: "123", pubDate: "2022"),
-        Movie(title: "Topgun", imageURL: "", userRating: "10.0", actor: "123", director: "123", pubDate: "2022"),
-        Movie(title: "Topgun", imageURL: "", userRating: "10.0", actor: "123", director: "123", pubDate: "2022")
-    ]
+    private var likedMovie: [Movie] = []
     
     private var currentMovieSearchResult: [Movie] = []
     
     init(
         viewController: MovieListProtocol,
+        userDefaultsManager: USerDefaultsManagerProtocol = UserDefaultsManager(),
         movieSearchManager: MovieSearchManagerProtocol = MovieSearchMangaer()
     ) {
         self.viewController = viewController
+        self.userDefaultsManager = userDefaultsManager
         self.movieSearchManager = movieSearchManager
     }
     
@@ -41,6 +42,11 @@ final class MovieListPrenseter: NSObject {
         viewController?.setupNavigationBar()
         viewController?.setupSearchBar()
         viewController?.setupViews()
+    }
+    
+    func viewWillAppear() {
+        likedMovie = userDefaultsManager.getMovies()
+        viewController?.updateCollectionView()
     }
 }
 
