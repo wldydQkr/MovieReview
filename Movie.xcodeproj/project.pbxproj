@@ -22,12 +22,15 @@
 		C0E6B2722873ADA300BCD9ED /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B2712873ADA300BCD9ED /* MovieListViewController.swift */; };
 		C0E6B2772873ADA500BCD9ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E6B2762873ADA500BCD9ED /* Assets.xcassets */; };
 		C0E6B27A2873ADA500BCD9ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E6B2782873ADA500BCD9ED /* LaunchScreen.storyboard */; };
-		C0E6B2852873ADA500BCD9ED /* MovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B2842873ADA500BCD9ED /* MovieTests.swift */; };
 		C0E6B28F2873ADA500BCD9ED /* MovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B28E2873ADA500BCD9ED /* MovieUITests.swift */; };
 		C0E6B2912873ADA500BCD9ED /* MovieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B2902873ADA500BCD9ED /* MovieUITestsLaunchTests.swift */; };
 		C0E6B29F2873AE2C00BCD9ED /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C0E6B29E2873AE2C00BCD9ED /* SnapKit */; };
 		C0E6B2A22873AE4D00BCD9ED /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C0E6B2A12873AE4D00BCD9ED /* Alamofire */; };
 		C0E6B2A52873AE6300BCD9ED /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C0E6B2A42873AE6300BCD9ED /* Kingfisher */; };
+		C0E863C22894D4F200C39621 /* MovieListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E863C12894D4F200C39621 /* MovieListPresenterTests.swift */; };
+		C0E863C52894DA9400C39621 /* MockMovieSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E863C42894DA9400C39621 /* MockMovieSearchManager.swift */; };
+		C0E863C82894DB0000C39621 /* MockUserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E863C72894DB0000C39621 /* MockUserDefaultsManager.swift */; };
+		C0E863CA2895726D00C39621 /* MockMovieListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E863C92895726D00C39621 /* MockMovieListViewTests.swift */; };
 		C0F15C35287D4553000C190F /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F15C34287D4553000C190F /* MovieListPresenter.swift */; };
 		C0F9C878289020BE00F53282 /* MovieContentStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9C877289020BE00F53282 /* MovieContentStackView.swift */; };
 		C0F9C87A2890247300F53282 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9C8792890247300F53282 /* UserDefaultsManager.swift */; };
@@ -72,10 +75,13 @@
 		C0E6B2792873ADA500BCD9ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0E6B27B2873ADA500BCD9ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0E6B2802873ADA500BCD9ED /* MovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0E6B2842873ADA500BCD9ED /* MovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTests.swift; sourceTree = "<group>"; };
 		C0E6B28A2873ADA500BCD9ED /* MovieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E6B28E2873ADA500BCD9ED /* MovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUITests.swift; sourceTree = "<group>"; };
 		C0E6B2902873ADA500BCD9ED /* MovieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C0E863C12894D4F200C39621 /* MovieListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenterTests.swift; sourceTree = "<group>"; };
+		C0E863C42894DA9400C39621 /* MockMovieSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieSearchManager.swift; sourceTree = "<group>"; };
+		C0E863C72894DB0000C39621 /* MockUserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaultsManager.swift; sourceTree = "<group>"; };
+		C0E863C92895726D00C39621 /* MockMovieListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieListViewTests.swift; sourceTree = "<group>"; };
 		C0F15C34287D4553000C190F /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
 		C0F9C877289020BE00F53282 /* MovieContentStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieContentStackView.swift; sourceTree = "<group>"; };
 		C0F9C8792890247300F53282 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -226,7 +232,8 @@
 		C0E6B2832873ADA500BCD9ED /* MovieTests */ = {
 			isa = PBXGroup;
 			children = (
-				C0E6B2842873ADA500BCD9ED /* MovieTests.swift */,
+				C0E863C62894DAD800C39621 /* Mocks */,
+				C0E863C32894D50000C39621 /* Tests */,
 			);
 			path = MovieTests;
 			sourceTree = "<group>";
@@ -238,6 +245,24 @@
 				C0E6B2902873ADA500BCD9ED /* MovieUITestsLaunchTests.swift */,
 			);
 			path = MovieUITests;
+			sourceTree = "<group>";
+		};
+		C0E863C32894D50000C39621 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C0E863C12894D4F200C39621 /* MovieListPresenterTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		C0E863C62894DAD800C39621 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C0E863C42894DA9400C39621 /* MockMovieSearchManager.swift */,
+				C0E863C72894DB0000C39621 /* MockUserDefaultsManager.swift */,
+				C0E863C92895726D00C39621 /* MockMovieListViewTests.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +345,7 @@
 					};
 					C0E6B27F2873ADA500BCD9ED = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 						TestTargetID = C0E6B2692873ADA300BCD9ED;
 					};
 					C0E6B2892873ADA500BCD9ED = {
@@ -490,7 +516,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0E6B2852873ADA500BCD9ED /* MovieTests.swift in Sources */,
+				C0E863C52894DA9400C39621 /* MockMovieSearchManager.swift in Sources */,
+				C0E863C22894D4F200C39621 /* MovieListPresenterTests.swift in Sources */,
+				C0E863C82894DB0000C39621 /* MockUserDefaultsManager.swift in Sources */,
+				C0E863CA2895726D00C39621 /* MockMovieListViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,15 +735,23 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6NDM2TJS37;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.induk.pjy.MovieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieTests/MovieTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movie.app/Movie";
@@ -727,15 +764,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6NDM2TJS37;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.induk.pjy.MovieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieTests/MovieTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movie.app/Movie";
