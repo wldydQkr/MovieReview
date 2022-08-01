@@ -60,6 +60,7 @@
 		7D66D7E3CE1D1226248B3617 /* Pods_MovieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F56B36432129D44D8703BF /* Pods-Movie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie.release.xcconfig"; path = "Target Support Files/Pods-Movie/Pods-Movie.release.xcconfig"; sourceTree = "<group>"; };
 		B0053B7034DC4D4793CB738F /* Pods_Movie_MovieUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movie_MovieUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0662CC928957E4F0010B121 /* MovieTests-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MovieTests-BridgingHeader.h"; sourceTree = "<group>"; };
 		C08788CB287EB38900460E08 /* MovieListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCollectionViewCell.swift; sourceTree = "<group>"; };
 		C0D7A82D28883F950054FF36 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		C0D7A82F28883FB00054FF36 /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
@@ -250,6 +251,7 @@
 		C0E863C32894D50000C39621 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C0662CC928957E4F0010B121 /* MovieTests-BridgingHeader.h */,
 				C0E863C12894D4F200C39621 /* MovieListPresenterTests.swift */,
 			);
 			path = Tests;
@@ -616,6 +618,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 			};
 			name = Debug;
 		};
@@ -669,6 +672,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -750,7 +754,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.induk.pjy.MovieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "MovieTests/MovieTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieTests/Tests/MovieTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -779,7 +783,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.induk.pjy.MovieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "MovieTests/MovieTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieTests/Tests/MovieTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movie.app/Movie";
